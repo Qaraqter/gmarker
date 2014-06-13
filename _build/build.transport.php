@@ -27,7 +27,7 @@
  * location, adjust the MODX_CORE_PATH declaration below so this script will
  * know where the MODX core is.
  *
- * The Git directory was installed inside assets/components/gmarkers
+ * The Git directory was installed inside the root directory.
  *
  * @package gmarker
  * @subpackage build
@@ -42,7 +42,7 @@ define('PKG_VERSION', '1.0');
 define('PKG_RELEASE', 'pl');
 
 if (!defined('MODX_CORE_PATH')) {
-	define('MODX_CORE_PATH', dirname(dirname(dirname(dirname(dirname(__FILE__))))).'/core/');
+	define('MODX_CORE_PATH', dirname(dirname(dirname(__FILE__))).'/core/');
 }
 if (!defined('MODX_CONFIG_KEY')) {
 	define('MODX_CONFIG_KEY', 'config');
@@ -427,9 +427,8 @@ $vehicle->resolve('file', array(
 $builder->putVehicle($vehicle);
 */
 
-// Core: TODO - this shouldn't be hard-coded!
 $vehicle->resolve('file', array(
-    'source' => MODX_ASSETS_PATH .'components/'.PKG_NAME_LOWER.'/core/components/'.PKG_NAME_LOWER,
+    'source' => dirname(dirname(__FILE__)) . '/core/components/'.PKG_NAME_LOWER,
     'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 $builder->putVehicle($vehicle);
@@ -439,9 +438,9 @@ $builder->putVehicle($vehicle);
 //! DOCS
 //------------------------------------------------------------------------------
 $builder->setPackageAttributes(array(
-    'license' => file_get_contents(MODX_ASSETS_PATH .'components/'.PKG_NAME_LOWER.'/core/components/'.PKG_NAME_LOWER.'/docs/license.txt'),
-    'readme' => file_get_contents(MODX_ASSETS_PATH .'components/'.PKG_NAME_LOWER.'/core/components/'.PKG_NAME_LOWER.'/docs/readme.txt'),
-    'changelog' => file_get_contents(MODX_ASSETS_PATH .'components/'.PKG_NAME_LOWER.'/core/components/'.PKG_NAME_LOWER.'/docs/changelog.txt'),
+    'license' => file_get_contents(dirname(dirname(__FILE__)) . '/core/components/'.PKG_NAME_LOWER.'/docs/license.txt'),
+    'readme' => file_get_contents(dirname(dirname(__FILE__)) . '/core/components/'.PKG_NAME_LOWER.'/docs/readme.txt'),
+    'changelog' => file_get_contents(dirname(dirname(__FILE__)) . '/core/components/'.PKG_NAME_LOWER.'/docs/changelog.txt'),
 //    'setup-options' => array(
 //        'source' => MODX_ASSETS_PATH .'components/docs/user.input.html',
 //   ),
