@@ -38,8 +38,8 @@
 // The deets...
 define('PKG_NAME', 'Gmarker');
 define('PKG_NAME_LOWER', strtolower(PKG_NAME));
-define('PKG_VERSION', '1.0');
-define('PKG_RELEASE', 'pl');
+define('PKG_VERSION', '1.0.1');
+define('PKG_RELEASE', 'alpha');
 
 if (!defined('MODX_CORE_PATH')) {
 	define('MODX_CORE_PATH', dirname(dirname(dirname(__FILE__))).'/core/');
