@@ -1,9 +1,11 @@
+<script type="text/javascript" src="[[+gmarker_url]]"></script>
+
 <script type="text/javascript">
 	/**
 	 * Used by the Gmarker Extra
 	 */
 
-	var Gmarker[[+id]] = {
+	var Gmarker = {
 
 		init: function() {
 		 	this.gmarkers = [];
@@ -58,18 +60,16 @@
       // == a checkbox has been clicked ==
       function category_click(box, category) {
         if (box.checked) {
-        	Gmarker[[+id]].show_marker(category);
+        	Gmarker.show_marker(category);
         } else {
-         	Gmarker[[+id]].hide_marker(category);
+         	Gmarker.hide_marker(category);
         }
 
       }
 
-      if (window.addEventListener) {
-        window.addEventListener('load', Gmarker[[+id]].init(), false);
-      } else if (window.attachEvent) {
-        window.attachEvent('onload', Gmarker[[+id]].init());
-      }
+	window.onload = function() {
+		 Gmarker.init();
+	}
 
 </script>
 
