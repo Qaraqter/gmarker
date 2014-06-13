@@ -396,7 +396,8 @@ if (!$shadow) {
 }
 
 // Add the stuff to the head
-$modx->regClientStartupHTMLBlock($modx->getChunk($headTpl, $props));
+$modx->regClientScript($props['gmarker_url']);
+$modx->regClientHTMLBlock($modx->getChunk($headTpl, $props));
 
 $modx->setPlaceholder('gmarker.results',$results);
 $modx->setPlaceholder('gmarker.checkboxes',$checkboxes);
