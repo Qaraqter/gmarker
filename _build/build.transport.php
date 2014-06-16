@@ -414,6 +414,17 @@ $Setting->fromArray(array(
 $vehicle = $builder->createVehicle($Setting, $attributes);
 $builder->putVehicle($vehicle);
 
+$Setting = $modx->newObject('modSystemSetting');
+$Setting->fromArray(array(
+    'key' => 'gmarker.runPluginOnSave',
+    'value' => 1,
+    'xtype' => 'combo-boolean',
+    'namespace' => PKG_NAME_LOWER,
+    'area' => 'default',
+),'',true,true);
+
+$vehicle = $builder->createVehicle($Setting, $attributes);
+$builder->putVehicle($vehicle);
 
 //------------------------------------------------------------------------------
 //! Files

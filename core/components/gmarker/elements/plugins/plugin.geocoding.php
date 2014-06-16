@@ -49,6 +49,7 @@ $tpl = $modx->getOption('gmarker.formatting_string');
 $secure = $modx->getOption('gmarker.secure');
 $lat_tv = $modx->getOption('gmarker.lat_tv');
 $lng_tv = $modx->getOption('gmarker.lng_tv');
+$runPluginOnSave = $modx->getOption('gmarker.runPluginOnSave');
 
 // Google props: what we will send them
 $goog = array(); 
@@ -95,12 +96,12 @@ $json = $Gmarker->lookup($goog,$secure);
 // Write lat/lng back to the page
 $modx->log(xPDO::LOG_LEVEL_DEBUG, "[Geocoding Plugin] setting lat:".$Gmarker->get('location.lat')." and lng:".$Gmarker->get('location.lng'));
 
-if(!$resource->getTVValue($lat_tv)) {
+if(!$resource->getTVValue($lat_tv) || $runPluginOnSave) {
 	if(!$resource->setTVValue($lat_tv, $Gmarker->get('location.lat'))) {
 		$modx->log(xPDO::LOG_LEVEL_ERROR, $modx->lexicon('problem_saving', array('id'=> $resource->get('id'))));
 	}
 }
-if(!$resource->getTVValue($lng_tv)) {
+if(!$resource->getTVValue($lng_tv) || $runPluginOnSave) {
 	if(!$resource->setTVValue($lng_tv, $Gmarker->get('location.lng'))) {
 		$modx->log(xPDO::LOG_LEVEL_ERROR, $modx->lexicon('problem_saving', array('id'=> $resource->get('id'))));
 	}

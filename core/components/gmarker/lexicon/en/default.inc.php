@@ -82,5 +82,6 @@ $_lang['setting_gmarker.region_desc'] = 'The region code, specified as a ccTLD (
 $_lang['setting_gmarker.pincolor'] = 'Default Pin Color';
 $_lang['setting_gmarker.pincolor_desc'] = 'Set a valid CSS color, e.g. FE7569 (do not include the #), to set the default color of your pins.  Used by the Gmarker Snippet.';
 
-
+$_lang['setting_gmarker.runPluginOnSave'] = 'Run plugin on every save';
+$_lang['setting_gmarker.runPluginOnSave_desc'] = 'If this is set to Yes the plugin will run everytime you save a page that uses the template to geocode. Otherwise it will run when the geolocation is empty.';
 /*EOF*/
