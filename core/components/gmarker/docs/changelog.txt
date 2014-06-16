@@ -1,4 +1,8 @@
 Changelog for Gmarker.
+Gmarker 1.0.1
+Added runPluginOnSave system setting
+Made the Build.transport less hard-coded.
+Applied patch for mutlitple maps on 1 page.
 
 Gmarker 1.0
 ======================================
